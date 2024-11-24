@@ -65,7 +65,7 @@ local function OnLevelUp(level)
 	end
 
 	if reminderLevels[tonumber(level)] then
-		if C_PlayerInfo.IsXPUserDisabled() then
+		if IsXPUserDisabled() then
 			print("|cff00ff00Your XP is already locked. No action needed.|r")
 			return
 		end
