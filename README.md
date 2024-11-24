@@ -1,5 +1,5 @@
 # TrialHelper
-Silences trial account ads while enhancing your gameplay experience.
+Silences trial account ads while enhancing your gameplay experience and providing reminders for locking your XP gains.
 
 ## Features
 - Suppresses annoying trial account ads.
