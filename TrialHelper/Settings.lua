@@ -22,6 +22,20 @@ Settings:RegisterSettings("TrialHelperDB", {
 		tooltip = "Toggle to show or hide the welcome login message in the Trial Helper addon.",
 		default = true,
 	},
+	{
+		key = "enableXPLock",
+		type = "toggle",
+		title = "Enable XP Lock Helper",
+		tooltip = "Enable or disable the XP Lock functionality.",
+		default = true,
+	},
+	{
+		key = "enableXPReminder",
+		type = "toggle",
+		title = "Enable XP Reminders",
+		tooltip = "Enable or disable reminders and the reminder popup for locking XP gains.",
+		default = true,
+	},
 })
 
 Settings:RegisterSettingsSlash("/th")

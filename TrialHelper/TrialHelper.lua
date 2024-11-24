@@ -34,7 +34,7 @@ local function ShowLoginMessage()
 	local coloredName = string.format("|cff%02x%02x%02x%s|r", classColor.r * 255, classColor.g * 255, classColor.b * 255, playerName)
 	local classIcon = CLASS_ICONS[playerClass] and "|T" .. CLASS_ICONS[playerClass] .. ICON_SIZE .. "|t" or ""
 
-	print(DIMMED_WHITE .. " Thank you for using " .. ADDON_ICON .. ADDON_NAME .. ", " .. classIcon .. coloredName .. "! Enjoy your trial account experience.|r")
+	print(DIMMED_WHITE .. "Thank you for using " .. ADDON_ICON .. ADDON_NAME .. ", " .. classIcon .. coloredName .. "! Enjoy your trial account experience.|r")
 end
 
 local function CloseSubscriptionFrame()
