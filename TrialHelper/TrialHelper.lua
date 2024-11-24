@@ -57,9 +57,14 @@ local function HandleTrialHelperEvents(event)
 		return
 	end
 
+	-- Debug: Log all events triggered
+	print("-----------")
+	print("Event triggered:", event)
+	print("-----------")
+
 	if event == "UPDATE_PENDING_MAIL" then
 		C_Timer.After(0.5, UpdateMiniMapMailIcon)
-	elseif event == "ADDON_LOADED" or event == "PLAYER_LEVEL_UP" then
+	elseif event == "ADDON_LOADED" or event == "PLAYER_LEVEL_UP" or event == "PLAYER_ENTERING_WORLD" then
 		C_Timer.After(0.5, CloseSubscriptionFrame)
 		TrialAccountCapReached_Inform()
 	end
@@ -79,11 +84,12 @@ end
 -- Event Handling
 local TrialHelperFrame = CreateFrame("Frame", "TrialHelperFrame", UIParent)
 TrialHelperFrame:RegisterEvent("PLAYER_LOGIN")
+TrialHelperFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 TrialHelperFrame:RegisterEvent("ADDON_LOADED")
 TrialHelperFrame:RegisterEvent("PLAYER_LEVEL_UP")
 TrialHelperFrame:RegisterEvent("UPDATE_PENDING_MAIL")
 
-TrialHelperFrame:SetScript("OnEvent", function(_, event, addon)
+TrialHelperFrame:SetScript("OnEvent", function(_, event)
 	if not Module:GetOption("enableTrialHelper") then
 		return
 	end
@@ -104,6 +110,7 @@ Module:RegisterOptionCallback("toggleMailIcon", UpdateMiniMapMailIcon)
 Module:RegisterOptionCallback("enableTrialHelper", function()
 	if Module:GetOption("enableTrialHelper") then
 		TrialHelperFrame:RegisterEvent("PLAYER_LOGIN")
+		TrialHelperFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 		TrialHelperFrame:RegisterEvent("ADDON_LOADED")
 		TrialHelperFrame:RegisterEvent("PLAYER_LEVEL_UP")
 		TrialHelperFrame:RegisterEvent("UPDATE_PENDING_MAIL")
